@@ -52,7 +52,10 @@ class _ApiScannerViewState extends ConsumerState<ApiScannerView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.api, size: 64, color: Color(0xFF818CF8)),
+              const Tooltip(
+                message: 'API Security Engine',
+                child: Icon(Icons.api, size: 64, color: Color(0xFF818CF8)),
+              ),
               const SizedBox(height: 24),
               Text(
                 'API Vulnerability Scanner',
@@ -81,26 +84,30 @@ class _ApiScannerViewState extends ConsumerState<ApiScannerView> {
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
-                    TextField(
-                      controller: _urlController,
-                      style: GoogleFonts.firaCode(color: const Color(0xFFF8FAFC)),
-                      decoration: InputDecoration(
-                        hintText: 'https://api.example.com/v1',
-                        hintStyle: GoogleFonts.firaCode(color: const Color(0xFF475569)),
-                        filled: true,
-                        fillColor: const Color(0xFF0F172A),
-                        prefixIcon: const Icon(Icons.link, color: Color(0xFF818CF8)),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: const BorderSide(color: Color(0xFF334155)),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: const BorderSide(color: Color(0xFF334155)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: const BorderSide(color: Color(0xFF818CF8)),
+                    Tooltip(
+                      message: 'Enter HTTP or HTTPS endpoint',
+                      waitDuration: const Duration(milliseconds: 500),
+                      child: TextField(
+                        controller: _urlController,
+                        style: GoogleFonts.firaCode(color: const Color(0xFFF8FAFC)),
+                        decoration: InputDecoration(
+                          hintText: 'https://api.example.com/v1',
+                          hintStyle: GoogleFonts.firaCode(color: const Color(0xFF475569)),
+                          filled: true,
+                          fillColor: const Color(0xFF0F172A),
+                          prefixIcon: const Tooltip(message: 'Target URL', child: Icon(Icons.link, color: Color(0xFF818CF8))),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(color: Color(0xFF334155)),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(color: Color(0xFF334155)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(color: Color(0xFF818CF8)),
+                          ),
                         ),
                       ),
                     ),
@@ -108,28 +115,32 @@ class _ApiScannerViewState extends ConsumerState<ApiScannerView> {
                     SizedBox(
                       width: double.infinity,
                       height: 50,
-                      child: ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF818CF8),
-                          foregroundColor: const Color(0xFFFFFFFF),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
+                      child: Tooltip(
+                        message: _isLoading ? 'Scanning in progress...' : 'Initiate security scan',
+                        waitDuration: const Duration(milliseconds: 500),
+                        child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF818CF8),
+                            foregroundColor: const Color(0xFFFFFFFF),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            elevation: 0,
                           ),
-                          elevation: 0,
-                        ),
-                        onPressed: _isLoading ? null : _startScan,
-                        icon: _isLoading 
-                          ? const SizedBox(
-                              width: 20, 
-                              height: 20, 
-                              child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)
-                            )
-                          : const Icon(Icons.radar),
-                        label: Text(
-                          _isLoading ? 'SCANNING...' : 'START SCAN',
-                          style: GoogleFonts.firaCode(
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.5,
+                          onPressed: _isLoading ? null : _startScan,
+                          icon: _isLoading 
+                            ? const SizedBox(
+                                width: 20, 
+                                height: 20, 
+                                child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)
+                              )
+                            : const Icon(Icons.radar),
+                          label: Text(
+                            _isLoading ? 'SCANNING...' : 'START SCAN',
+                            style: GoogleFonts.firaCode(
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.5,
+                            ),
                           ),
                         ),
                       ),
@@ -163,7 +174,7 @@ class _ApiScannerViewState extends ConsumerState<ApiScannerView> {
             padding: const EdgeInsets.all(16.0),
             child: Row(
               children: [
-                const Icon(Icons.analytics, color: Color(0xFF38BDF8)),
+                const Tooltip(message: 'Analysis findings', child: Icon(Icons.analytics, color: Color(0xFF38BDF8))),
                 const SizedBox(width: 8),
                 Text(
                   'Scan Results',
@@ -187,10 +198,13 @@ class _ApiScannerViewState extends ConsumerState<ApiScannerView> {
               final isSecure = item['isSecure'] as bool;
               return ListTile(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                leading: Icon(
-                  isSecure ? Icons.check_circle : Icons.warning_amber_rounded,
-                  color: isSecure ? Colors.greenAccent : Colors.redAccent,
-                  size: 28,
+                leading: Tooltip(
+                  message: isSecure ? 'Secure' : 'Vulnerable',
+                  child: Icon(
+                    isSecure ? Icons.check_circle : Icons.warning_amber_rounded,
+                    color: isSecure ? Colors.greenAccent : Colors.redAccent,
+                    size: 28,
+                  ),
                 ),
                 title: Text(
                   item['title'],

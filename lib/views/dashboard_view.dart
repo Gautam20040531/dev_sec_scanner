@@ -80,9 +80,12 @@ class DashboardView extends ConsumerWidget {
     final isSelected = currentIndex == index;
     return Container(
       color: isSelected ? const Color(0xFF1E293B) : Colors.transparent,
-      child: ListTile(
-        leading: Icon(icon, color: isSelected ? const Color(0xFF38BDF8) : const Color(0xFF94A3B8)),
-        title: Text(
+      child: Tooltip(
+        message: 'Open $title',
+        waitDuration: const Duration(milliseconds: 500),
+        child: ListTile(
+          leading: Icon(icon, color: isSelected ? const Color(0xFF38BDF8) : const Color(0xFF94A3B8)),
+          title: Text(
           title,
           style: GoogleFonts.firaCode(
             color: isSelected ? const Color(0xFF38BDF8) : const Color(0xFF94A3B8),
@@ -92,6 +95,7 @@ class DashboardView extends ConsumerWidget {
         // ক্লিকে ক্লিকে ইনডেক্স চেঞ্জ করার জাদু
         onTap: () => ref.read(navIndexProvider.notifier).state = index,
       ),
+      ),
     );
   }
 
@@ -100,7 +104,10 @@ class DashboardView extends ConsumerWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.security, size: 64, color: Color(0xFF38BDF8)),
+          const Tooltip(
+            message: 'DevSec Security Systems',
+            child: Icon(Icons.security, size: 64, color: Color(0xFF38BDF8)),
+          ),
           const SizedBox(height: 24),
           Text(
             'System Ready.\nSelect a Scanner to begin.',

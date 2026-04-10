@@ -55,7 +55,10 @@ class _AppScannerViewState extends ConsumerState<AppScannerView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.folder_zip, size: 64, color: Color(0xFF38BDF8)),
+              const Tooltip(
+                message: 'Binary Analysis Engine',
+                child: Icon(Icons.folder_zip, size: 64, color: Color(0xFF38BDF8)),
+              ),
               const SizedBox(height: 24),
               Text(
                 'Binary App Scanner',
@@ -93,62 +96,73 @@ class _AppScannerViewState extends ConsumerState<AppScannerView> {
   }
 
   Widget _buildFilePickerArea() {
-    return GestureDetector(
-      onTap: _pickAndAnalyzeFile,
-      child: Container(
-        height: 250,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: const Color(0xFF1E293B).withOpacity(0.5),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: const Color(0xFF38BDF8).withOpacity(0.5),
-            width: 2,
+    return Tooltip(
+      message: 'Click or Drop file to scan',
+      waitDuration: const Duration(milliseconds: 500),
+      child: GestureDetector(
+        onTap: _pickAndAnalyzeFile,
+        child: Container(
+          height: 250,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: const Color(0xFF1E293B).withOpacity(0.5),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: const Color(0xFF38BDF8).withOpacity(0.5),
+              width: 2,
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.cloud_upload_outlined,
-              size: 48,
-              color: Color(0xFF94A3B8),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Drag & Drop File Here',
-              style: GoogleFonts.firaCode(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: const Color(0xFFE2E8F0),
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'or click to browse (.apk, .exe)',
-              style: GoogleFonts.firaCode(
-                fontSize: 14,
-                color: const Color(0xFF64748B),
-              ),
-            ),
-            const SizedBox(height: 24),
-            OutlinedButton.icon(
-              style: OutlinedButton.styleFrom(
-                foregroundColor: const Color(0xFF38BDF8),
-                side: const BorderSide(color: Color(0xFF38BDF8)),
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Tooltip(
+                message: 'Upload file',
+                child: Icon(
+                  Icons.cloud_upload_outlined,
+                  size: 48,
+                  color: Color(0xFF94A3B8),
                 ),
               ),
-              onPressed: _pickAndAnalyzeFile,
-              icon: const Icon(Icons.upload),
-              label: Text(
-                'SELECT FILE',
-                style: GoogleFonts.firaCode(fontWeight: FontWeight.w600),
+              const SizedBox(height: 16),
+              Text(
+                'Drag & Drop File Here',
+                style: GoogleFonts.firaCode(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: const Color(0xFFE2E8F0),
+                ),
               ),
-            ),
-          ],
+              const SizedBox(height: 8),
+              Text(
+                'or click to browse (.apk, .exe)',
+                style: GoogleFonts.firaCode(
+                  fontSize: 14,
+                  color: const Color(0xFF64748B),
+                ),
+              ),
+              const SizedBox(height: 24),
+              Tooltip(
+                message: 'Open file explorer',
+                waitDuration: const Duration(milliseconds: 500),
+                child: OutlinedButton.icon(
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: const Color(0xFF38BDF8),
+                    side: const BorderSide(color: Color(0xFF38BDF8)),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  onPressed: _pickAndAnalyzeFile,
+                  icon: const Icon(Icons.upload),
+                  label: Text(
+                    'SELECT FILE',
+                    style: GoogleFonts.firaCode(fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -215,7 +229,7 @@ class _AppScannerViewState extends ConsumerState<AppScannerView> {
             padding: const EdgeInsets.all(16.0),
             child: Row(
               children: [
-                const Icon(Icons.shield, color: Color(0xFF818CF8)),
+                const Tooltip(message: 'Security Assessment', child: Icon(Icons.shield, color: Color(0xFF818CF8))),
                 const SizedBox(width: 8),
                 Text(
                   'Binary Analysis Report',
@@ -250,10 +264,13 @@ class _AppScannerViewState extends ConsumerState<AppScannerView> {
               final isSecure = item['isSecure'] as bool;
               return ListTile(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                leading: Icon(
-                  isSecure ? Icons.verified_user : Icons.gpp_bad,
-                  color: isSecure ? Colors.greenAccent : Colors.redAccent,
-                  size: 28,
+                leading: Tooltip(
+                  message: isSecure ? 'Secure' : 'Vulnerable',
+                  child: Icon(
+                    isSecure ? Icons.verified_user : Icons.gpp_bad,
+                    color: isSecure ? Colors.greenAccent : Colors.redAccent,
+                    size: 28,
+                  ),
                 ),
                 title: Text(
                   item['title'],

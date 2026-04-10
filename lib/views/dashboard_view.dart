@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../controllers/nav_controller.dart';
 import 'api_scanner_view.dart';
 import 'app_scanner_view.dart';
+import 'support_view.dart';
 
 // StatelessWidget এর বদলে ConsumerWidget ব্যবহার করা হলো
 class DashboardView extends ConsumerWidget {
@@ -21,7 +22,7 @@ class DashboardView extends ConsumerWidget {
       _buildHomeContent(),
       const ApiScannerView(),
       const AppScannerView(),
-      const Center(child: Text('Settings Coming Soon', style: TextStyle(color: Colors.white))),
+      const SupportView(),
     ];
 
     return Scaffold(
@@ -68,7 +69,7 @@ class DashboardView extends ConsumerWidget {
           _sidebarItem(ref, currentIndex, index: 1, icon: Icons.api, title: 'API Scanner'),
           _sidebarItem(ref, currentIndex, index: 2, icon: Icons.folder_zip, title: 'App Scanner'),
           const Spacer(),
-          _sidebarItem(ref, currentIndex, index: 3, icon: Icons.settings, title: 'Settings'),
+          _sidebarItem(ref, currentIndex, index: 3, icon: Icons.support_agent, title: 'Support'),
           const SizedBox(height: 16),
         ],
       ),
@@ -124,7 +125,7 @@ class DashboardView extends ConsumerWidget {
         BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Home'),
         BottomNavigationBarItem(icon: Icon(Icons.api), label: 'API'),
         BottomNavigationBarItem(icon: Icon(Icons.folder_zip), label: 'App'),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+        BottomNavigationBarItem(icon: Icon(Icons.support_agent), label: 'Support'),
       ],
     );
   }

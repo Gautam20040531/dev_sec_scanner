@@ -16,7 +16,7 @@
  
 - **🧑‍💻 Integrated Developer Feedback Portal**
   Submit instantaneous UI/UX or feature bugs mapped across dynamically loaded project sections directly back to the infrastructure engineers.
-
+ 
 ## 🏗️ Architecture
  
 Engineered meticulously utilizing a **Clean Architecture (MVC-inspired)** standard separating all distinct concerns:

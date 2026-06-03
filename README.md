@@ -18,7 +18,7 @@
   Submit instantaneous UI/UX or feature bugs mapped across dynamically loaded project sections directly back to the infrastructure engineers.
 
 ## 🏗️ Architecture
-
+ 
 Engineered meticulously utilizing a **Clean Architecture (MVC-inspired)** standard separating all distinct concerns:
 - **`lib/views/`**: Robust declarative UIs rendering fluid 60FPS animations.
 - **`lib/services/`**: Simulated API connectivity layers wrapping discrete analysis modules.

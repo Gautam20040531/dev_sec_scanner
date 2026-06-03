@@ -1,4 +1,4 @@
-# 🛡️ DevSec Scanner
+# 🛡️ DevSec Scanner 
 
 > **The Ultimate All-in-One Developer Security Scanner** built with Flutter to ensure enterprise-grade security across web endpoints, mobile applications, and native desktop binaries. 
 

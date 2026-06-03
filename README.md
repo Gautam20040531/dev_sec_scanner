@@ -67,3 +67,4 @@ Please review our contributing flow:
 ---
 
 <p align="center"><i>Made with strictly uncompromising premium code standards.</i></p>
+ 

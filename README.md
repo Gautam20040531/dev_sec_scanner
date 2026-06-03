@@ -15,7 +15,7 @@
   Direct drag-and-drop support for `.apk`, `.exe`, or `.ipa` analysis. Extracts insecure compiler flags, validates Authenticode / APK signatures, and audits app execution settings (like ASLR, DEP).
  
 - **🧑‍💻 Integrated Developer Feedback Portal**
-  Submit instantaneous UI/UX or feature bugs mapped across dynamically loaded project sections directly back to the infrastructure engineers.
+  Submit instantaneous UI/UX or feature bugs mapped across dynamically loaded project sections directly back to the infrastructure engineers. 
  
 ## 🏗️ Architecture
   

@@ -24,7 +24,7 @@ Engineered meticulously utilizing a **Clean Architecture (MVC-inspired)** standa
 - **`lib/services/`**: Simulated API connectivity layers wrapping discrete analysis modules.
 - **`lib/controllers/`**: Isolated deterministic State handling bridged via lightweight **Riverpod Providers**.
 
-## 📸 Screenshots
+## 📸 Screenshots 
 
 | Dashboard Home | App Analyzer Module | API Threat Scanner |
 |:---:|:---:|:---:|

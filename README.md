@@ -30,7 +30,7 @@ Engineered meticulously utilizing a **Clean Architecture (MVC-inspired)** standa
 |:---:|:---:|:---:|
 | ![Dashboard](assets/screenshots/dashboard.png) | ![App Analyzer](assets/screenshots/app_analyzer.png) | ![API Scanner](assets/screenshots/api_scanner.png) |
 
-## 🚀 Getting Started
+## 🚀 Getting Started 
 
 ### Prerequisites
 

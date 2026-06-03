@@ -20,7 +20,7 @@
 ## 🏗️ Architecture
   
 Engineered meticulously utilizing a **Clean Architecture (MVC-inspired)** standard separating all distinct concerns:
-- **`lib/views/`**: Robust declarative UIs rendering fluid 60FPS animations.
+- **`lib/views/`**: Robust declarative UIs rendering fluid 60FPS animations. 
 - **`lib/services/`**: Simulated API connectivity layers wrapping discrete analysis modules.
 - **`lib/controllers/`**: Isolated deterministic State handling bridged via lightweight **Riverpod Providers**.
 

@@ -9,7 +9,7 @@
 ## ✨ Features  
 
 - **🌐 Deep API Vulnerability Scanner**
-  Actively monitors target URLs mapping typical web configurations, probing for missing HSTS headers, X-Frame-Options, Exposed Server stacks, and CSP inadequacies.
+  Actively monitors target URLs mapping typical web configurations, probing for missing HSTS headers, X-Frame-Options, Exposed Server stacks, and CSP inadequacies. 
 
 - **📦 Binary App Static Analyzer**
   Direct drag-and-drop support for `.apk`, `.exe`, or `.ipa` analysis. Extracts insecure compiler flags, validates Authenticode / APK signatures, and audits app execution settings (like ASLR, DEP).

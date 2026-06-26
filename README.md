@@ -7,7 +7,7 @@
 ---  
 
 ## ✨ Features    
- 
+  
 - **🌐 Deep API Vulnerability Scanner**
   Actively monitors target URLs mapping typical web configurations, probing for missing HSTS headers, X-Frame-Options, Exposed Server stacks, and CSP inadequacies. 
 

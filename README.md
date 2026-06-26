@@ -4,7 +4,7 @@
 
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) ![Riverpod](https://img.shields.io/badge/Riverpod-State_Management-blue?style=for-the-badge) ![Open Source](https://img.shields.io/badge/Open%20Source-❤️-green?style=for-the-badge) ![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)
  
----
+--- 
 
 ## ✨ Features   
  
